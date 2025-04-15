@@ -1,5 +1,30 @@
 function minDate(dates) {
-  //write you code here
+	//write you code here
+	let minDate=dates[0];
+	for(let i=1;i<dates.length;i++){
+		if(getYear(minDate)>getYear(dates[i])){
+			minDate=dates[i];
+		}
+		else if(getYear(minDate)==getYear(dates[i]) && getMonth(minDate)>getMonth(dates[i])){
+			minDate=dates[i];
+		}
+		else if(getYear(minDate)==getYear(dates[i]) && getMonth(minDate)==getMonth(dates[i]) && getDate(minDate)>getDate(dates[i])){
+			minDate=dates[i];
+		}
+	}
+	return(minDate);
+}
+
+function getYear(date){
+	return parseInt(date.slice(0,4));
+}
+
+function getMonth(date){
+	return parseInt(date.slice(5,7));
+}
+
+function getDate(date){
+	return parseInt(date.slice(8,10));
 }
 
 // Do not change the code
@@ -36,5 +61,6 @@ var dates = [
   "2023/03/29",
   "2023/03/30",
 ];
+
 
 alert(minDate(dates));
